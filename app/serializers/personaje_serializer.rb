@@ -16,6 +16,6 @@
 #  index_personajes_on_nombre  (nombre)
 #
 class PersonajeSerializer < ActiveModel::Serializer
-  attributes :id, :imagen, :nombre, :edad, :peso, :historia
-  
+  attributes :imagen, :nombre
+  has_many :peliculas
 end

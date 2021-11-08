@@ -23,4 +23,7 @@ class Personaje < ApplicationRecord
     validates :imagen, presence: true
     validates :nombre, presence: true
     validates :peso, presence: true, numericality: {greater_than: 0}
+
+    scope :nombre, -> (nombres) { where(nombre: nombres)}
+    scope :edad, -> (edads) { where(edad: edads)}
 end

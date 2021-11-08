@@ -20,7 +20,6 @@
 #  fk_rails_...  (genero_id => generos.id)
 #
 class PeliculaSerializer < ActiveModel::Serializer
-  attributes :id, :imagen, :titulo, :calificacion
-  has_one :genero
-  
+  attributes :imagen, :titulo, :created_at, :calificacion
+  has_many :personajes
 end

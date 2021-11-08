@@ -2,10 +2,23 @@ module Api
   module V1
     class PeliculasController < ApplicationController
       before_action :set_pelicula, only: [:show, :update, :destroy]
+      
+      has_scope :titulo
+      has_scope :genero
 
       # GET /peliculas
       def index
-        @peliculas = Pelicula.all
+        if params[:titulo] or params[:genero]
+          @peliculas = apply_scopes(Pelicula)
+        elsif params["orden"]
+          if params["orden"] == "DESC"
+            @peliculas = Pelicula.order(created_at: :desc)
+          elsif params["orden"] == "ASC"
+            @peliculas = Pelicula.order(created_at: :asc)
+          end
+        else
+          @peliculas = Pelicula.all
+        end
 
         render json: @peliculas
       end

@@ -13,6 +13,5 @@
 #  index_generos_on_nombre  (nombre)
 #
 class GeneroSerializer < ActiveModel::Serializer
-  attributes :id, :nombre, :imagen
-  has_many :peliculas
+  attributes :nombre, :imagen
 end

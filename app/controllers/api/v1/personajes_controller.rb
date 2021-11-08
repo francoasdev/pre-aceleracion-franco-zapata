@@ -3,9 +3,22 @@ module Api
   class PersonajesController < ApplicationController
     before_action :set_personaje, only: [:show, :update, :destroy]
 
+    has_scope :nombre
+    has_scope :edad
+
     # GET /personajes
     def index
-      @personajes = Personaje.all
+      if params[:nombre] or params[:edad]
+          @personajes = apply_scopes(Personaje)
+      elsif params["orden"]
+          if params["orden"] == "DESC"
+            @personajes = Personaje.order(created_at: :desc)
+          elsif params["orden"] == "ASC"
+            @personajes = Personaje.order(created_at: :asc)
+          end
+      else
+        @personajes = Personaje.all
+      end
 
       render json: @personajes
     end

@@ -28,4 +28,7 @@ class Pelicula < ApplicationRecord
   validates :imagen, presence: true
 
   validates :titulo, presence: true
+
+  scope :titulo, -> (titulos) { where(titulo: titulos)}
+  scope :genero, -> (genero_ids) { where(genero_id: genero_ids)} 
 end
