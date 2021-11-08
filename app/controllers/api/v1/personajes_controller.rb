@@ -33,7 +33,7 @@ module Api
       @personaje = Personaje.new(personaje_params)
 
       if @personaje.save
-        render json: @personaje, status: :created, location: @personaje
+        render json: @personaje, status: :created
       else
         render json: @personaje.errors, status: :unprocessable_entity
       end

@@ -33,7 +33,7 @@ module Api
         @pelicula = Pelicula.new(pelicula_params)
 
         if @pelicula.save
-          render json: @pelicula, status: :created, location: @pelicula
+          render json: @pelicula, status: :created
         else
           render json: @pelicula.errors, status: :unprocessable_entity
         end

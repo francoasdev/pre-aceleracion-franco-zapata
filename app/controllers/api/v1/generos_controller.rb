@@ -20,7 +20,7 @@ module Api
         @genero = Genero.new(genero_params)
 
         if @genero.save
-          render json: @genero, status: :created, location: @genero
+          render json: @genero, status: :created
         else
           render json: @genero.errors, status: :unprocessable_entity
         end
