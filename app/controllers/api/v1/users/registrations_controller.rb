@@ -16,4 +16,5 @@ class Api::V1::Users::RegistrationsController < Devise::RegistrationsController
     def register_failed
         render json: { message: "Something went wrong." }
     end
+
 end

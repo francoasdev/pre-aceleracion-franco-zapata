@@ -22,4 +22,15 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: JwtDenylist
+
+  after_create :welcome_email
+
+  # Private Methods
+  private
+
+  def welcome_email
+    UserNotifierMailer.welcome_email(self).deliver
+  end
+
+
 end
