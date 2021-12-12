@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a project I made to join Alkemy Labs.
 
-Things you may want to cover:
+The challenge was about making an API to explore the world of Disney, to know and modify characters and understand on which movie they participate. On the other hand, we must expose information so any front end can consume the API.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+We must use Ruby On Rails and it should be RESTful.
